@@ -1755,7 +1755,8 @@ const IMG={"i3": "data:image/webp;base64,UklGRuCdAQBXRUJQVlA4INSdAQCwxASdASpMBJM
     if (!on) { const d = {}; editables.forEach(e => { if (e.textContent !== e.dataset.orig) d[e.dataset.orig] = e.textContent; }); try { localStorage.setItem(KEY, JSON.stringify(d)); toast('고친 글을 이 브라우저에 저장했습니다'); } catch (_) { toast('저장하지 못했습니다'); } } else toast('글자를 눌러 고치세요. 끝나면 다시 ‘글자 편집’');
   };
   const start = () => { const h = location.hash.slice(1), i = slides.findIndex(s => s.dataset.name === h); show(i >= 0 ? i : 0, true); };
-  window.addEventListener('hashchange', start); window.addEventListener('resize', scale);
+  window.addEventListener('hashchange', start); function ensureAll() { if (isList()) { slides.forEach(loadImgs); try { showC(0); } catch (_) {} } }
+  window.addEventListener('resize', () => { scale(); ensureAll(); }); ensureAll();
   setPresent(false); scale(); start(); document.fonts && document.fonts.ready.then(scale);
 })();
 </script>

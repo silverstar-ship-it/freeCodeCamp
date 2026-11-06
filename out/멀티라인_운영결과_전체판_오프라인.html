@@ -2139,7 +2139,8 @@ const IMG={"i9": "data:image/webp;base64,UklGRiiWAgBXRUJQVlA4IByWAgAQggadASp8A3g
 
   const start = () => { const h = location.hash.slice(1), i = slides.findIndex(s => s.dataset.name === h); show(i >= 0 ? i : 0, true); };
   window.addEventListener('hashchange', start);
-  window.addEventListener('resize', scale);
+  function ensureAll() { if (isList()) { slides.forEach(loadImgs); try { showHq('yc'); } catch (_) {} } }
+  window.addEventListener('resize', () => { scale(); ensureAll(); }); ensureAll();
   draw6(); setPresent(false); scale(); start();
   document.fonts && document.fonts.ready.then(scale);
 })();
