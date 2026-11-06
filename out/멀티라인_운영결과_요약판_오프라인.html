@@ -1666,8 +1666,8 @@ const IMG={"i3": "data:image/webp;base64,UklGRuCdAQBXRUJQVlA4INSdAQCwxASdASpMBJM
     const r = fit.getBoundingClientRect(), s = Math.min((r.width - 70) / 1600, r.height / 900);
     stage.style.transform = `translate(-50%, -50%) scale(${Math.max(s, .2)})`;
     const h = 900 * s;
-    gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`; gauge.style.bottom = `${(r.height - h) / 2 + 56 * s}px`;
-    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 - 4 * s)}px`;
+    gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`; gauge.style.bottom = 'auto'; gauge.style.height = '788px'; gauge.style.transformOrigin = 'top right'; gauge.style.transform = `scale(${Math.max(s, .2)})`;
+    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 + 14 * s)}px`;
   }
   gauge.innerHTML = '<div class="peak" id="peak">최고수위!</div><div class="rail"><div class="ticks"></div><div class="fill"></div></div><div class="lvl"></div>';
   const chs = slides.map((s, i) => { const b = document.createElement('button'); b.className = 'ch'; b.textContent = s.dataset.ch; b.style.bottom = (i / (N - 1)) * 100 + '%'; b.onclick = () => show(i); gauge.appendChild(b); return b; });

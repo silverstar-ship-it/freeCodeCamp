@@ -1892,9 +1892,8 @@ const IMG={"i9": "data:image/webp;base64,UklGRiiWAgBXRUJQVlA4IByWAgAQggadASp8A3g
     const s = Math.min((r.width - 70) / 1600, r.height / 900);
     stage.style.transform = `translate(-50%, -50%) scale(${Math.max(s, .2)})`;
     const h = 900 * s;
-    gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`;
-    gauge.style.bottom = `${(r.height - h) / 2 + 56 * s}px`;
-    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 - 4 * s)}px`;
+    gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`; gauge.style.bottom = 'auto'; gauge.style.height = '788px'; gauge.style.transformOrigin = 'top right'; gauge.style.transform = `scale(${Math.max(s, .2)})`;
+    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 + 14 * s)}px`;
   }
 
   // 수위표: 장이 넘어갈수록 물이 차오른다. 왼쪽 장 이름을 누르면 그 대목으로 이동
