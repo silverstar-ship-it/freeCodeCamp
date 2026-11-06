@@ -1533,12 +1533,23 @@ input[type=range] { width: 100%; accent-color: var(--water); }
   <div class="bar" role="toolbar" aria-label="슬라이드 조작">
     <span class="brand">2026 멀티라인 운영 결과 · 요약</span>
     <button class="btn desk" id="prev" aria-label="이전 장">‹ 이전</button>
-    <span class="count" id="count">1 / 6</span>
+    <span class="count" id="count">1 / 8</span>
     <button class="btn desk" id="next" aria-label="다음 장">다음 ›</button>
     <button class="btn desk" id="present" aria-pressed="false">발표 모드</button>
     <button class="btn" id="edit" aria-pressed="false">글자 편집</button>
   </div>
   <div class="fit" id="fit"><div class="stage" id="stage">
+
+    <section class="slide cover" data-name="cover" data-ch="시작" aria-label="표지">
+      <div>
+        <p class="kicker" data-edit>수자원본부 낙동강권역실 · 성과사례공유회 · 왕은규</p>
+        <h1>멀티<span>라인</span></h1>
+        <p class="sub" data-edit>2026년 멀티라인 유속 측정시스템 운영 결과</p>
+        <div class="meta"><span class="chip">전자파 표면유속계 <b>4세트 · 40대</b></span><span class="chip">운영 결과보고 <b>2026. 9. 29.</b></span><span class="chip">한국수자원조사기술원</span></div>
+        <button class="go" id="startTalk">시작하기 →</button>
+      </div>
+      <div class="hero card pad0"><img class="ph" data-k="i9" alt="인제군 왕성동교에 설치한 멀티라인 전자파 표면유속계 전경"><p class="cap" style="padding:6px 8px 2px">인제군 왕성동교 설치 전경 (2026. 7. 9. 13:00)</p></div>
+    </section>
 
     <section class="slide" data-name="why" data-ch="배경" aria-label="배경">
       <header><p class="eyebrow">배경</p><h2 class="title" data-edit>홍수 때는 한 측선씩 재는 동안 <em>수위가 달라집니다</em></h2></header>
@@ -1614,11 +1625,19 @@ input[type=range] { width: 100%; accent-color: var(--water); }
       </div>
     </section>
 
-    <section class="slide" class="slide end2" data-name="end" data-ch="결론" aria-label="결론 및 향후 계획">
+    <section class="slide end2" data-name="end" data-ch="결론" aria-label="결론 및 향후 계획">
       <header><p class="eyebrow">결론 및 향후 계획</p><h2 class="title" data-edit>홍수 상승·첨두 구간의 <em>연속 실측자료</em>를 확보했습니다</h2></header>
       <div class="cols" style="grid-template-columns:1fr 1fr;gap:28px;align-items:start">
         <div class="hcard" data-step><h3>2026년 결과</h3><ul class="bul" style="gap:14px"><li data-edit><b>7개 지점</b>에서 상승·첨두·하강 구간의 10분 간격 동시간 유량</li><li data-edit>인력 실측과 <b>약 5% 편차율</b></li><li data-edit>1세트로 <b>2~3개 지점</b>을 옮겨 측정, 약 3일 무인 운영</li><li data-edit>권역별 1세트로는 한계, <b>추가 구매</b> 필요</li></ul></div>
         <div class="hcard acc" data-step><h3>향후 계획</h3><ul class="bul" style="gap:14px"><li data-edit><b>시스템 개선</b>: 장비 점검, 원격 모니터링·제어, 매뉴얼·유지관리 체계</li><li data-edit><b>검·보정 성과 자동 생산</b>: 인력 측정 없이 자동유량 검증</li><li data-edit><b>H-Q 곡선식</b> 내·외삽 구간 보완</li><li data-edit><b>대표성과 선정기준</b>(안): 수위변동량의 5%(1~20 cm) 간격, 의견수렴 후 적용</li></ul></div>
+      </div>
+    </section>
+    <section class="slide thanks" data-name="thanks" data-ch="감사" aria-label="감사합니다">
+      <div class="rain" id="rain" aria-hidden="true"></div>
+      <div class="tk">
+        <p class="kicker" data-edit>수자원본부 낙동강권역실 · 왕은규</p>
+        <h1 data-edit>감사합니다</h1>
+        <p class="sub" data-edit>다음 홍수기에는 <span>더 많은 지점</span>에서 만나겠습니다.</p>
       </div>
     </section>
   </div>
@@ -1721,6 +1740,8 @@ const IMG={"i3": "data:image/webp;base64,UklGRuCdAQBXRUJQVlA4INSdAQCwxASdASpMBJM
   function countTo(node, to, ms) { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; const t0 = performance.now(); (function f(now) { const p = Math.min(1, (now - t0) / ms); node.textContent = Math.round(to * p); if (p < 1) requestAnimationFrame(f); })(t0); }
   function onEnter(n) { if (n === 'result') { countTo($('#c12'), 12, 700); countTo($('#c7'), 7, 900); } if (n === 'cases') showC($$('#cseg button.sel')[0] ? $$('#cseg button').indexOf($$('#cseg button.sel')[0]) : 0); }
 
+  $('#startTalk').onclick = () => { setPresent(true); show(1); };
+  (function () { const r = $('#rain'); for (let i = 0; i < 26; i++) { const d = document.createElement('i'); d.style.left = (i * 3.9 + (i % 3)) + '%'; d.style.animationDuration = (2.2 + (i % 7) * 0.5) + 's'; d.style.animationDelay = (-(i % 9) * 0.6) + 's'; r.appendChild(d); } })();
   const KEY = 'multiline-summary-edits-v1', editables = $$('[data-edit]');
   editables.forEach(e => { e.dataset.orig = e.textContent; });
   try { const sv = JSON.parse(localStorage.getItem(KEY) || '{}'); editables.forEach(e => { const v = sv[e.dataset.orig]; if (v != null) e.textContent = v; }); } catch (_) {}
