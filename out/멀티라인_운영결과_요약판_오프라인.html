@@ -1194,6 +1194,7 @@
 
 .end2 .bul li{font-size:27px;line-height:1.55} .end2 .hcard{padding:30px 34px;gap:18px} .end2 .hcard h3{font-size:36px}
 .s3 .big .n{font-size:200px}
+#cph,#cg1,#cg2{width:auto;max-width:100%;height:auto;object-fit:contain} .mini{min-width:0} .card.pad0{overflow:hidden}
 </style>
 </head>
 <body>
@@ -1423,7 +1424,7 @@ input[type=range] { width: 100%; accent-color: var(--water); }
 }
 
 /* ---- 전체판 추가 ---- */
-.slide { padding: 50px 232px 46px 70px; gap: 18px; }
+.slide { padding: 50px 268px 46px 70px; gap: 18px; }
 .gauge { width: 200px; right: 26px; }
 .gauge .rail { left: auto; right: 66px; width: 30px; }
 .gauge .ticks { left: auto; right: 66px; width: 30px; background: repeating-linear-gradient(to top, var(--fg) 0 2px, transparent 2px 9%) right/ 55% 100% no-repeat; }
@@ -1664,7 +1665,7 @@ const IMG={"i3": "data:image/webp;base64,UklGRuCdAQBXRUJQVlA4INSdAQCwxASdASpMBJM
     stage.style.transform = `translate(-50%, -50%) scale(${Math.max(s, .2)})`;
     const h = 900 * s;
     gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`; gauge.style.bottom = `${(r.height - h) / 2 + 56 * s}px`;
-    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 + 26 * s)}px`;
+    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 - 4 * s)}px`;
   }
   gauge.innerHTML = '<div class="peak" id="peak">최고수위!</div><div class="rail"><div class="ticks"></div><div class="fill"></div></div><div class="lvl"></div>';
   const chs = slides.map((s, i) => { const b = document.createElement('button'); b.className = 'ch'; b.textContent = s.dataset.ch; b.style.bottom = (i / (N - 1)) * 100 + '%'; b.onclick = () => show(i); gauge.appendChild(b); return b; });

@@ -1421,7 +1421,7 @@ input[type=range] { width: 100%; accent-color: var(--water); }
 }
 
 /* ---- 전체판 추가 ---- */
-.slide { padding: 50px 232px 46px 70px; gap: 18px; }
+.slide { padding: 50px 268px 46px 70px; gap: 18px; }
 .gauge { width: 200px; right: 26px; }
 .gauge .rail { left: auto; right: 66px; width: 30px; }
 .gauge .ticks { left: auto; right: 66px; width: 30px; background: repeating-linear-gradient(to top, var(--fg) 0 2px, transparent 2px 9%) right/ 55% 100% no-repeat; }
@@ -1894,7 +1894,7 @@ const IMG={"i9": "data:image/webp;base64,UklGRiiWAgBXRUJQVlA4IByWAgAQggadASp8A3g
     const h = 900 * s;
     gauge.style.top = `${(r.height - h) / 2 + 56 * s}px`;
     gauge.style.bottom = `${(r.height - h) / 2 + 56 * s}px`;
-    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 + 26 * s)}px`;
+    gauge.style.right = `${Math.max(6, (r.width - 1600 * s) / 2 - 4 * s)}px`;
   }
 
   // 수위표: 장이 넘어갈수록 물이 차오른다. 왼쪽 장 이름을 누르면 그 대목으로 이동
