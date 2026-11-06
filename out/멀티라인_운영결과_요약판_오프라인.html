@@ -1530,6 +1530,62 @@ input[type=range] { width: 100%; accent-color: var(--water); }
 .ctab { display: flex; gap: 6px; flex-wrap: wrap; }
 .sm2 .stats { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 760px) { .pg, .pg.p5 { grid-template-columns: 1fr 1fr; } .pg .box { height: 180px; } .pg img { max-height: 180px; } }
+/* ---- 야간·주말 강점 장 ---- */
+.nt { display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 28px; align-items: start; min-height: 0; }
+.nt .donut { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 22px 18px 20px; display: grid; justify-items: center; gap: 8px; box-shadow: var(--shadow); }
+.nt .dwrap { position: relative; width: 300px; height: 300px; }
+.nt .dwrap svg { width: 300px; height: 300px; transform: rotate(-90deg); }
+.nt .ring { fill: none; stroke-width: 34; }
+.nt .ring.d { stroke: var(--accent); opacity: .85; }
+.nt .ring.n { stroke: var(--water); stroke-linecap: butt; stroke-dasharray: 376 691.2; stroke-dashoffset: 0; transition: stroke-dasharray 1.6s cubic-bezier(.3, .7, .2, 1); }
+.nt.nt-pre .ring.n { stroke-dasharray: 0 691.2; transition: none; }
+.nt .dc { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.nt .dc b { font-family: var(--f-display); font-weight: 400; font-size: 104px; line-height: 1; color: var(--water); }
+.nt .dc b small { font-size: 44px; color: var(--muted); margin-left: 2px; }
+.nt .dc > span { font-size: 19px; color: var(--muted); margin-top: 4px; }
+.nt .dleg { display: flex; gap: 18px; font-size: 18px; flex-wrap: wrap; justify-content: center; }
+.nt .dleg i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+.nt .dsum { font-size: 22px; font-weight: 700; }
+.nt .dsum em { font-style: normal; color: var(--water); font-family: var(--f-display); font-weight: 400; font-size: 34px; }
+.nt .board { display: grid; gap: 14px; min-width: 0; }
+.nt .rowsb { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 14px 22px 10px; box-shadow: var(--shadow); }
+.nt .hd, .nt .rw { display: grid; grid-template-columns: 190px minmax(0, 1fr) 130px 250px; gap: 16px; align-items: center; }
+.nt .hd { font-size: 15px; color: var(--muted); padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.nt .rw { padding: 9px 0; border-bottom: 1px dashed var(--line); }
+.nt .rw:last-child { border-bottom: 0; }
+.nt .nm { font-size: 20px; font-weight: 700; line-height: 1.2; }
+.nt .nm small { display: block; font-size: 14px; color: var(--muted); font-weight: 500; }
+.nt .pk { display: inline-block; font-size: 13px; font-weight: 700; color: #fff; background: var(--water); border-radius: 999px; padding: 0 9px; margin-left: 6px; vertical-align: 2px; animation: ntpulse 2s ease-in-out infinite; }
+@keyframes ntpulse { 50% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--water) 25%, transparent); } }
+.nt .split { display: flex; height: 26px; border-radius: 6px; overflow: hidden; background: var(--line); }
+.nt .split i { display: block; height: 100%; transition: width 1.1s cubic-bezier(.3, .7, .2, 1); }
+.nt .split .sd { background: var(--accent); opacity: .85; }
+.nt .split .sn { background: var(--water); }
+.nt.nt-pre .split i { width: 0 !important; transition: none; }
+.nt .cnt { font-family: var(--f-num); font-variant-numeric: tabular-nums; font-size: 18px; text-align: right; }
+.nt .cnt b { color: var(--water); font-size: 22px; }
+.nt .vr { display: grid; grid-template-columns: minmax(0, 1fr) 70px; gap: 8px; align-items: center; }
+.nt .vb { height: 14px; background: var(--water-soft); border-radius: 3px; position: relative; }
+.nt .vb i { position: absolute; inset: 0 auto 0 0; background: var(--fg); opacity: .8; border-radius: 3px; transition: width 1.2s cubic-bezier(.3, .7, .2, 1) .25s; }
+.nt.nt-pre .vb i { width: 0 !important; transition: none; }
+.nt .vv { font-family: var(--f-num); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 18px; text-align: right; }
+.nt .fast { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 22px; align-items: center; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 18px; padding: 14px 22px; }
+.nt .fast .big10 { font-family: var(--f-display); font-size: 54px; line-height: 1; color: var(--accent); }
+.nt .fast .big10 small { font-family: var(--f-body); font-size: 19px; color: var(--muted); display: block; margin-top: 4px; }
+.nt .fb { display: grid; gap: 8px; }
+.nt .fb div { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 10px; align-items: center; font-size: 17px; }
+.nt .fb .bar3 { height: 18px; border-radius: 4px; background: var(--accent); transition: width 1.1s cubic-bezier(.3, .7, .2, 1) .6s; }
+.nt .fb .bar3.g { background: var(--muted); opacity: .6; }
+.nt .fb .bar3 em { font-style: normal; }
+.nt.nt-pre .fb .bar3 { width: 0 !important; transition: none; }
+.nt .src2 { font-size: 15px; color: var(--muted); }
+@media (max-width: 760px) {
+  .nt { grid-template-columns: 1fr; }
+  .nt .dwrap, .nt .dwrap svg { width: 220px; height: 220px; } .nt .dc b { font-size: 70px; }
+  .nt .hd { display: none; } .nt .rw { grid-template-columns: 1fr 70px; } .nt .rw .split { grid-column: 1 / -1; } .nt .rw .vr { grid-column: 1 / -1; }
+  .nt .fast { grid-template-columns: 1fr; } .nt .fast .big10 { font-size: 40px; }
+}
+@media (prefers-reduced-motion: reduce) { .nt .ring.n, .nt .split i, .nt .vb i, .nt .fb .bar3 { transition: none !important; } .nt .pk { animation: none; } }
 </style>
 <div class="viewer" id="viewer">
   <div class="bar" role="toolbar" aria-label="슬라이드 조작">
@@ -1597,7 +1653,35 @@ input[type=range] { width: 100%; accent-color: var(--water); }
       </div>
     </section>
 
-    <section class="slide" data-name="cases" data-ch="사례" aria-label="대표 사례">
+    <section class="slide" data-name="night" data-ch="강점" aria-label="야간 성과">
+        <header><p class="eyebrow">멀티라인이 강한 순간 · 야간·주말 수위 상승</p><h2 class="title" data-edit>해가 진 뒤에 <em>절반 넘는</em> 성과를 얻었습니다</h2></header>
+        <div class="nt" id="nt">
+          <div class="donut">
+            <div class="dwrap">
+              <svg viewBox="0 0 300 300" aria-hidden="true"><circle class="ring d" cx="150" cy="150" r="110"/><circle class="ring n" cx="150" cy="150" r="110"/></svg>
+              <div class="dc"><b><span id="ntp">54</span><small>%</small></b><span>야간에 얻은 성과</span></div>
+            </div>
+            <div class="dsum"><em id="ntn">295</em> / <span id="ntt">542</span>개</div>
+            <div class="dleg"><span><i style="background:var(--water)"></i>야간(18시~6시)</span><span><i style="background:var(--accent);opacity:.85"></i>주간</span></div>
+          </div>
+          <div class="board">
+            <div class="rowsb">
+              <div class="hd"><span>지점</span><span>성과의 주간·야간 구성</span><span style="text-align:right">야간 / 전체</span><span>측정 중 수위변동 폭</span></div>
+              <div id="ntrows"></div>
+            </div>
+            <div class="fast">
+              <div class="big10"><span id="nt24">0.24</span> m<small>창원천제1호교 · 10분 사이 수위 변화</small></div>
+              <div class="fb">
+                <div><span>멀티라인 10분 간격</span><span class="bar3" data-w="34" style="width:34%"></span></div>
+                <div><span>인력 30분 이상*</span><span class="bar3 g" data-w="100" style="width:100%"></span></div>
+              </div>
+            </div>
+            <p class="src2" data-edit>* 같은 속도로 30분 오른다고 가정하면 약 0.7 m. 야간 성과 비율은 결과보고서 붙임의 지점별 자료 개요(야간 18시~6시) 5개 지점 합계이며, 진안·의령은 자료 개요가 없어 제외했습니다. 문경(8/31 20:40)과 천안(8/31 23:10)은 최고수위가 야간에 지나갔습니다.</p>
+          </div>
+        </div>
+      </section>
+      
+<section class="slide" data-name="cases" data-ch="사례" aria-label="대표 사례">
       <header><p class="eyebrow">대표 사례</p><h2 class="title" data-edit id="ctitle"></h2></header>
       <div class="mini">
         <div class="seg" id="cseg" role="group" aria-label="사례 선택"></div>
@@ -1761,5 +1845,30 @@ const IMG={"i3": "data:image/webp;base64,UklGRuCdAQBXRUJQVlA4INSdAQCwxASdASpMBJM
 })();
 </script>
 
+<script>
+(function () {
+  const sec = document.querySelector('.slide[data-name="night"]'); if (!sec) return;
+  const nt = sec.querySelector('#nt');
+  const S = [['인제 왕성동교', '한강', 20, 37, 0.35, ''], ['문경 불정교', '낙동강', 96, 136, 1.19, '8/31 20:40'], ['천안 눈들교', '금강', 37, 41, 1.41, '8/31 23:10'], ['창원 창원천제1호교', '낙동강', 9, 9, 0.58, ''], ['예천 산양교', '낙동강', 85, 72, 0.95, '']];
+  const maxv = 1.5;
+  sec.querySelector('#ntrows').innerHTML = S.map(s => { const t = s[2] + s[3], p = s[3] / t * 100;
+    return `<div class="rw"><div class="nm">${s[0]}${s[5] ? '<span class="pk">첨두 야간</span>' : ''}<small>${s[1]} 권역${s[5] ? ' · 첨두 ' + s[5] : ''}</small></div>
+      <div class="split" title="주간 ${s[2]}개, 야간 ${s[3]}개"><i class="sd" style="width:${100 - p}%"></i><i class="sn" style="width:${p}%"></i></div>
+      <div class="cnt"><b>${s[3]}</b> / ${t}<br><span style="font-size:14px;color:var(--muted)">${p.toFixed(1)}%</span></div>
+      <div class="vr"><span class="vb"><i style="width:${s[4] / maxv * 100}%"></i></span><span class="vv">${s[4].toFixed(2)} m</span></div></div>`; }).join('');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function count(node, to, ms, dec) { if (reduce) { node.textContent = to; return; } const t0 = performance.now(); (function f(now) { const k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 3); node.textContent = (to * e).toFixed(dec || 0); if (k < 1) requestAnimationFrame(f); })(t0); }
+  function run() {
+    nt.classList.add('nt-pre'); void nt.offsetWidth;
+    requestAnimationFrame(() => { nt.classList.remove('nt-pre');
+      count(sec.querySelector('#ntp'), 54, 1500); count(sec.querySelector('#ntn'), 295, 1500); count(sec.querySelector('#ntt'), 542, 1500); count(sec.querySelector('#nt24'), 0.24, 1200, 2); });
+  }
+  let was = false;
+  const obs = new MutationObserver(() => { const on = sec.classList.contains('on'); if (on && !was) run(); was = on; });
+  obs.observe(sec, { attributes: true, attributeFilter: ['class'] });
+  if (sec.classList.contains('on')) { was = true; run(); }
+})();
+
+</script>
 </body>
 </html>
